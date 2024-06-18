@@ -225,7 +225,7 @@ restaurantCopy.name = 'Ristorante Nova Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
-// class 7 - rest pattern and parameters
+// lecture 7 - rest pattern and parameters
 // 1) objects
 // spread, because on right side of =
 const arr2 = [1, 2, ...[3, 4]];
@@ -263,7 +263,7 @@ add(...x);
 // any ingredient will be added to pizza. useful for optional items
 restaurant.orderPizz('Mushrooms', 'onions', 'olives', 'alfafa');
 
-// class 7. rest patterns and rest elements
+// lecture  7. rest patterns and rest elements
 
 // 1) DESTRUCTURING
 
@@ -296,7 +296,7 @@ add(2, 3);
 add(3, 5, 6, 8);
 add(8, 6, 4, 4, 3, 2);
 
-// class 8. Short Circuiting (&& and a ||)
+// lecture 8. Short Circuiting (&& and a ||)
 
 console.log('------- OR -------');
 // it always stands for the truthy value
@@ -314,3 +314,15 @@ console.log(guest1);
 // important: even tough numGuests exist and has a truthy value, if numGuests = 0 it will not be considered a truthy value
 
 console.log('------- AND -------');
+// missing code
+
+// lecture 9 - nullish ciakescing operator
+restaurant.numGuests3 = 0;
+const guests3 = restaurant.numGuests || 10;
+console.log(guests3)
+
+// the operator itself
+const guestCorrect = restaurant.numGuests3 ?? 10;
+console.log(guestCorrect);
+
+// the nullish operator works with the idea of nullish values instead of falsy values (nullish = null or undefined, do not include 0 or '')
