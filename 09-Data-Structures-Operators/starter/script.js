@@ -316,13 +316,58 @@ console.log(guest1);
 console.log('------- AND -------');
 // missing code
 
-// lecture 9 - nullish ciakescing operator
+// lecture 9 - nullish coalescing operator
 restaurant.numGuests3 = 0;
 const guests3 = restaurant.numGuests || 10;
-console.log(guests3)
+console.log(guests3);
 
 // the operator itself
 const guestCorrect = restaurant.numGuests3 ?? 10;
 console.log(guestCorrect);
 
 // the nullish operator works with the idea of nullish values instead of falsy values (nullish = null or undefined, do not include 0 or '')
+
+// lecture 9 - logical assignment
+
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'la piaza',
+  owner: 'giovanni rossi',
+};
+
+//rest1.numGuests = rest1.numGuests || 10;
+//rest2.numGuests = rest2.numGuests || 10;
+
+console.log(rest1);
+console.log(rest2);
+
+// now a better way to do it
+// basically it assigns a value to a variable if the variable is falsy
+//rest1.numGuests ||= 10;
+//rest2.numGuests ||= 10;
+
+// if it is 0, then its falsy too, btw we can use nullish operator to make it happen (below)
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+// now with and
+
+// instead of
+//rest1.owner = rest1.owner && '<ANONYMOUS>';
+//rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+// we can do this
+rest1.owner &&= '<ANONYMOUS';
+rest2.owner &&= '<ANONYMOUS';
+
+console.log(rest1);
+console.log(rest2);
