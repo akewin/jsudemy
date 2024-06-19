@@ -73,4 +73,20 @@ const game = {
 
 // 1 - using destructuring
 const [players1, players2] = game.players;
-console.log(players1, players2);
+console.log("Game players", players1, players2);
+
+// 2 - using rest
+const [gk, ...fieldPlayers] = players1;
+console.log("Gk and rest", gk, fieldPlayers);
+
+// 3 - using spread
+const allPlayers = [...players1, ...players2];
+console.log("All players", allPlayers);
+
+// 4 - unpack the players1 array
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log("Final players team 1", players1Final);
+
+// 5 - using object
+
+const { odds: }
