@@ -89,4 +89,22 @@ console.log("Final players team 1", players1Final);
 
 // 5 - using object
 
-const { odds: }
+const { odds: {team1, x: draw, team2}} = game;
+
+console.log(team1, draw, team2)
+
+// 6
+const printGoals = 
+  function(...players){
+    console.log(players);
+    console.log(`${players.lenght} goals were scored`);
+};
+
+// the function takes how many arguments were passed
+
+//printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+
+// so let's make it take all the scored using rest
+printGoals("goals:", ...game.scored)
+
+// 7
