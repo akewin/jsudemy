@@ -97,7 +97,7 @@ console.log(team1, draw, team2)
 const printGoals = 
   function(...players){
     console.log(players);
-    console.log(`${players.lenght} goals were scored`);
+    console.log(`${players.length} goals were scored`);
 };
 
 // the function takes how many arguments were passed
@@ -108,3 +108,4 @@ const printGoals =
 printGoals("goals:", ...game.scored)
 
 // 7
+team1 < team2 && console.log("Team 1 is more likely to win");

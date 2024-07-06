@@ -1,8 +1,23 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// used on 113. Enhanced Object Literals
+const weekdays3 = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// used on 113. Enhanced Object Literals.  Before it was declared inside the restaurant object, like:
+const openingHours = {
+  [weekdays3[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays3[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays3[5]]: {
+    open: 0, // Open 24 hours
+    close: 12+12,
+  },
+};
 
 // Data needed for first part of the section
 const restaurant = {
@@ -11,23 +26,15 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-  order: function (starterIndex, mainIndex) {
+
+  // 113. Enhanced Object Literals - let's say we had the opening hours outside the object. The way we could do before ES6 to bring it to the object was: openingHours: openingHours, but now we can do this way (ES6 enhanced object literals):
+  openingHours,
+
+  // another way to declare a function inside an object introduced on ES6 (instead of   order: function(starterIndex, mainIndex)):
+  order(starterIndex, mainIndex) {
     return this.starterMenu[starterIndex], this.mainMenu[mainIndex];
   },
+  
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -35,7 +42,7 @@ const restaurant = {
     address,
   }) {
     console.log(
-      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`,
     );
   },
 
@@ -55,8 +62,8 @@ restaurant.orderDelivery({
   starterIndex: 1,
 });
 
-// Class 5 - destructuring objects
-const { name, openingHours, categories } = restaurant;
+// 105. - destructuring objects
+const { name, categories } = restaurant;
 console.log('this is the object destrucutring', name, openingHours, categories);
 
 // renaming them
@@ -171,7 +178,7 @@ console.log(fri);
 */
 
 console.log('CLASS 10: THE SPREAD OPERATOR');
-// Class 5 - The Spread Operator
+// 106. - The Spread Operator
 
 // let's say we have this array:
 const arr = [7, 8, 9];
@@ -225,7 +232,7 @@ restaurantCopy.name = 'Ristorante Nova Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
-// lecture 7 - rest pattern and parameters
+// 107. - rest pattern and parameters
 // 1) objects
 // spread, because on right side of =
 const arr2 = [1, 2, ...[3, 4]];
@@ -296,7 +303,7 @@ add(2, 3);
 add(3, 5, 6, 8);
 add(8, 6, 4, 4, 3, 2);
 
-// lecture 8. Short Circuiting (&& and a ||)
+// 108. Short Circuiting (&& and a ||)
 
 console.log('------- OR -------');
 // it always stands for the truthy value
@@ -316,7 +323,7 @@ console.log(guest1);
 console.log('------- AND -------');
 // missing code
 
-// lecture 9 - nullish coalescing operator
+// 109. - nullish coalescing operator
 restaurant.numGuests3 = 0;
 const guests3 = restaurant.numGuests || 10;
 console.log(guests3);
@@ -327,7 +334,7 @@ console.log(guestCorrect);
 
 // the nullish operator works with the idea of nullish values instead of falsy values (nullish = null or undefined, do not include 0 or '')
 
-// lecture 9 - logical assignment
+// 110. - logical assignment
 
 const rest1 = {
   name: 'Capri',
@@ -371,3 +378,15 @@ rest2.owner &&= '<ANONYMOUS';
 
 console.log(rest1);
 console.log(rest2);
+
+// 112 - the for-of loop
+
+const menu3 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// the for-of loop... we don't need a counter!
+for (const item of menu3) console.log(item, 'the for-of!');
+
+// plus we can even destruct elements
+for (const [i, el] of menu3.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
