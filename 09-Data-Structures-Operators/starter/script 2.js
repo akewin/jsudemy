@@ -18,7 +18,7 @@ const openingHours = {
   },
   [weekdays[5]]: {
     open: 0, // Open 24 hours
-    close: 12+12,
+    close: 12 + 12,
   },
 };
 
@@ -28,7 +28,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  
+
   openingHours,
 
   order(starterIndex, mainIndex) {
@@ -56,7 +56,8 @@ const restaurant = {
 };
 
 // lecture 114. optional chaining
-if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
 
 // ES2020 introduced a better way for doing this nestes checking which is called optional chaoning
 
@@ -65,13 +66,36 @@ if (restaurant.openingHours && restaurant.openingHours.mon) console.log(restaura
 console.log(restaurant.openingHours?.mon);
 console.log(restaurant.openingHours?.mon?.open);
 
-// example... 
+// example...
 
 // here we have a for that will go through the weekdays array and if in the openingHours object there is a property with the same name of the weekday, then it will print the opening hours of that day. Else it prints closed. We used ?? instead of || because we are working with undefined
-for (const day of weekdays){
+for (const day of weekdays) {
   const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`On ${day} we open at ${open}`);
 }
 
 //methods
-console.log(restaurant.order?.(1, 1) ?? 'Method does not exist')
+console.log(restaurant.order?.(1, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+//arrays
+const users = [
+  {
+    name: 'Kewin',
+    email: 'hello@gmail.com',
+  },
+];
+
+console.log(users[0]?.name ?? 'User array empty');
+//----------------------------
+//115. looping objects, object keys, values and entries
+
+// property names
+const properties = Object.keys(openingHours);
+console.log('properties:', properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day},`;
+}
+console.log(openStr);
