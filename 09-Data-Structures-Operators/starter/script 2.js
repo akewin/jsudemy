@@ -111,3 +111,22 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+
+// 17. Sets
+console.log("---------SETS----------");
+
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza'
+]);
+console.log(orderSet);
+console.log(new Set('Kewin'));
+console.log(orderSet.size)
+console.log(orderSet.has('Pizza'))
+console.log(orderSet.has('Potato'))
+
+// we can also add, remove, clear and convert sets to arrays. just keep in mind sets are iterables and do not have indexing, we can't order the items inside it
