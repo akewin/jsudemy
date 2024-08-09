@@ -29,7 +29,7 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > 1) {
       displayMessage(
         '.message',
-        guess > secretNumber ? '📈 Too high' : '📉 Too low'
+        guess > secretNumber ? '📈 Too high' : '📉 Too low',
       );
       score--;
       displayMessage('.score', score);

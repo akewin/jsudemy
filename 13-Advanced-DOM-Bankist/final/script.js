@@ -49,7 +49,7 @@ btnScrollTo.addEventListener('click', function (e) {
   console.log(
     'height/width viewport',
     document.documentElement.clientHeight,
-    document.documentElement.clientWidth
+    document.documentElement.clientWidth,
   );
 
   // Scrolling
@@ -220,7 +220,7 @@ const slider = function () {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML(
         'beforeend',
-        `<button class="dots__dot" data-slide="${i}"></button>`
+        `<button class="dots__dot" data-slide="${i}"></button>`,
       );
     });
   };
@@ -237,7 +237,7 @@ const slider = function () {
 
   const goToSlide = function (slide) {
     slides.forEach(
-      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`),
     );
   };
 

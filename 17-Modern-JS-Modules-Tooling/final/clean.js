@@ -26,7 +26,7 @@ const addExpense = function (
   limits,
   value,
   description,
-  user = 'jonas'
+  user = 'jonas',
 ) {
   const cleanUser = user.toLowerCase();
 
@@ -41,7 +41,7 @@ const newBudget2 = addExpense(
   spendingLimits,
   100,
   'Going to movies 🍿',
-  'Matilda'
+  'Matilda',
 );
 const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
 
@@ -59,7 +59,7 @@ const checkExpenses = (state, limits) =>
   state.map(entry =>
     entry.value < -getLimit(limits, entry.user)
       ? { ...entry, flag: 'limit' }
-      : entry
+      : entry,
   );
 
 const finalBudget = checkExpenses(newBudget3, spendingLimits);

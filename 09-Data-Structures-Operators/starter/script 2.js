@@ -130,3 +130,12 @@ console.log(orderSet.has('Pizza'))
 console.log(orderSet.has('Potato'))
 
 // we can also add, remove, clear and convert sets to arrays. just keep in mind sets are iterables and do not have indexing, we can't order the items inside it
+
+
+// maps
+console.log("-------maps-------");
+const rest = new Map();
+rest.set("name", "classico italiano");
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'lisbon, portugal'));
+rest.set("categories", ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'].set('open', 11).set('close', 23)

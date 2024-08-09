@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 // used on 113. Enhanced Object Literals
-const weekdays3 = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const weekdays3 = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
 // used on 113. Enhanced Object Literals.  Before it was declared inside the restaurant object, like:
 const openingHours = {
@@ -15,18 +15,17 @@ const openingHours = {
   },
   [weekdays3[5]]: {
     open: 0, // Open 24 hours
-    close: 12+12,
+    close: 12 + 12,
   },
 };
 
-
 // Data needed for first part of the section
 const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
 
   // 113. Enhanced Object Literals - let's say we had the opening hours outside the object. The way we could do before ES6 to bring it to the object was: openingHours: openingHours, but now we can do this way (ES6 enhanced object literals):
   openingHours,
@@ -35,11 +34,11 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return this.starterMenu[starterIndex], this.mainMenu[mainIndex];
   },
-  
+
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
-    time = '20:00',
+    time = "20:00",
     address,
   }) {
     console.log(
@@ -59,13 +58,13 @@ const restaurant = {
 
 //additional
 restaurant.orderDelivery({
-  address: 'Via del Sole, 21',
+  address: "Via del Sole, 21",
   starterIndex: 1,
 });
 
 // 105. - destructuring objects
 const { name, categories } = restaurant;
-console.log('this is the object destrucutring', name, openingHours, categories);
+console.log("this is the object destrucutring", name, openingHours, categories);
 
 // renaming them
 const {
@@ -178,7 +177,7 @@ console.log(a, b);
 console.log(fri);
 */
 
-console.log('CLASS 10: THE SPREAD OPERATOR');
+console.log("CLASS 10: THE SPREAD OPERATOR");
 // 106. - The Spread Operator
 
 // let's say we have this array:
@@ -193,7 +192,7 @@ console.log(newArr);
 console.log(...newArr);
 
 // new example
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
 console.log(newArr);
 
 // copy array
@@ -204,8 +203,8 @@ const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu2);
 
 // Iterables: arrays, strings, maps, sets. NOT objects
-const str = 'Kewin';
-const letters = [...str, ' ', 'S.'];
+const str = "Kewin";
+const letters = [...str, " ", "S."];
 console.log(letters);
 console.log(...str);
 // only work with functions or arrays
@@ -213,8 +212,8 @@ console.log(...str);
 
 const ingredients = [
   prompt("Let's make pasta! ingredient 1?"),
-  prompt('ingredient 2?'),
-  prompt('ingredient 3?'),
+  prompt("ingredient 2?"),
+  prompt("ingredient 3?"),
 ];
 console.log(ingredients);
 
@@ -224,12 +223,12 @@ restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 restaurant.orderPasta(...ingredients);
 
 // spread opp also work with objcts
-const newRestaurant = { foundedIn: 1978, ...restaurant, founder: 'Guiseppe' };
+const newRestaurant = { foundedIn: 1978, ...restaurant, founder: "Guiseppe" };
 console.log(newRestaurant);
 
 // or copy it!
 const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Nova Roma';
+restaurantCopy.name = "Ristorante Nova Roma";
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
@@ -269,7 +268,7 @@ const x = [23, 5, 7];
 add(...x);
 
 // any ingredient will be added to pizza. useful for optional items
-restaurant.orderPizz('Mushrooms', 'onions', 'olives', 'alfafa');
+restaurant.orderPizz("Mushrooms", "onions", "olives", "alfafa");
 
 // lecture  7. rest patterns and rest elements
 
@@ -306,13 +305,13 @@ add(8, 6, 4, 4, 3, 2);
 
 // 108. Short Circuiting (&& and a ||)
 
-console.log('------- OR -------');
+console.log("------- OR -------");
 // it always stands for the truthy value
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
 console.log(true || 0);
 console.log(undefined || null);
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
 
 // more practical application
 // if numGuests doesn't exist, then numGuests = 10
@@ -321,7 +320,7 @@ console.log(guest1);
 
 // important: even tough numGuests exist and has a truthy value, if numGuests = 0 it will not be considered a truthy value
 
-console.log('------- AND -------');
+console.log("------- AND -------");
 // missing code
 
 // 109. - nullish coalescing operator
@@ -338,14 +337,14 @@ console.log(guestCorrect);
 // 110. - logical assignment
 
 const rest1 = {
-  name: 'Capri',
+  name: "Capri",
   // numGuests: 20,
   numGuests: 0,
 };
 
 const rest2 = {
-  name: 'la piaza',
-  owner: 'giovanni rossi',
+  name: "la piaza",
+  owner: "giovanni rossi",
 };
 
 //rest1.numGuests = rest1.numGuests || 10;
@@ -374,8 +373,8 @@ console.log(rest2);
 //rest2.owner = rest2.owner && '<ANONYMOUS>';
 
 // we can do this
-rest1.owner &&= '<ANONYMOUS';
-rest2.owner &&= '<ANONYMOUS';
+rest1.owner &&= "<ANONYMOUS";
+rest2.owner &&= "<ANONYMOUS";
 
 console.log(rest1);
 console.log(rest2);
@@ -385,7 +384,7 @@ console.log(rest2);
 const menu3 = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // the for-of loop... we don't need a counter!
-for (const item of menu3) console.log(item, 'the for-of!');
+for (const item of menu3) console.log(item, "the for-of!");
 
 // plus we can even destruct elements
 for (const [i, el] of menu3.entries()) {
