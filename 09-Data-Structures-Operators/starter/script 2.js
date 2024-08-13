@@ -162,3 +162,28 @@ rest.set([1, 2], 'test');
 console.log(rest.size);
 //rest.clear();
 console.log(rest);
+
+// MAPS ITERATION 
+console.log("-------MAPS ITERATION------");
+// new way to populate maps
+
+const question = new Map([
+  ["question", "Do you like cats?"],
+  [1, "yes"],
+  [2, "no"],
+  [3, "maybe"],
+  ["correct", 1],
+  [true, "correct!"],
+  [false, "wrong :("]
+])
+console.log(question);
+
+// convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// destructuring and running a for
+for(const [key, value] of question){
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
