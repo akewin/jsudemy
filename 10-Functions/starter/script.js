@@ -6,11 +6,13 @@ console.log('------- LECTURE 129. DEFAULT PARAMETERS ------');
 
 const bookings = [];
 
-//simply by 
+//simply by putting the default value after the =
 const createBoooking = function (
   flightNum,
-  numPassengers,
+  numPassengers = 1,
   price = 199 * numPassengers
 ){
-  
+  // In ES5 we would do it his way>
+  //numPassengers = numPassengers || 1;
+  //price = price || 199 * numPassenger;
 }
