@@ -120,8 +120,14 @@ lufthansa.book(699, 'Kiwi Wiki');
 console.log(lufthansa);
 
 const eurowings = {
-  airline: 'Eurowings' ,
+  airline: 'Eurowings',
   iataCode: 'EW',
+  bookings: [],
+};
+
+const swiss = {
+  airline: 'Swiss Airlines',
+  iataCode: 'LX',
   bookings: [],
 };
 
@@ -130,4 +136,60 @@ const book = lufthansa.book;
 //does not work:
 //book(23, 'Sarah Williams')
 
-book.call(eurowings, 23, 'Sarah Williams')
+// call method
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary cooper');
+console.log(lufthansa);
+
+book.call(swiss, 494, 'Liam');
+console.log(swiss);
+
+//apply method
+const flightData = [583, 'George'];
+book.apply(swiss, flightData);
+console.log(swiss);
+//same as:
+book.call(swiss, ...flightData);
+
+console.log('------- LECTURE 135. BIND METHOD ------');
+//book.call(eurowings, 23, 'sarah williams');
+
+const bookEW = book.bind(eurowings);
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Kewin');
+bookEW23('Kiiwi');
+
+// with event listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+//null is the first argument of bind, in this case works null
+const addVAT = addTax.bind(null, 0.23);
+// same as addVAT = value => value + value * 0.23
+
+console.log(addVAT(100));
+
+// challenge
+const addTaxRate = function(rate){
+  return funcion(value){
+    return value + value * rate
+  }
+}
+const addVAT2 = addTaxRate(0.23)
+console.log(addVAT2(100));
