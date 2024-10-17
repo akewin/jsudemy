@@ -82,3 +82,52 @@ const transformer = function (str, fn) {
 
 transformer('Javascript is the best!', upperFirstWord);
 transformer('Javascript is the best!', oneWord);
+
+console.log('------- LECTURE 133. FUNCTIONS RETURNING FUNCTIONS ------');
+
+//const greet = function (greeting) {
+//return function (nome) {
+//    console.log(`${greeting}, ${nome}`);
+//  };
+//};
+
+//using arrow frunc - challenge
+const greet = greeting => nome => console.log(`${greeting}, ${nome}`);
+
+const greeterHey = greet('Hey');
+greeterHey('Jonas');
+greeterHey('Kewin');
+
+greet('Hello')('Kewin');
+
+console.log('------- LECTURE 134. THE CALL AND APPLY METHODS ------');
+
+const lufthansa = {
+  airline: 'lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  //book: function (){} can be:
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`,
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(378, 'Anthony Kewin');
+lufthansa.book(699, 'Kiwi Wiki');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings' ,
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+//does not work:
+//book(23, 'Sarah Williams')
+
+book.call(eurowings, 23, 'Sarah Williams')
