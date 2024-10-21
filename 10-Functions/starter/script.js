@@ -284,6 +284,7 @@ const poll = {
   },
 };
 
+// register event
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registrerNewAnswer.bind(poll));
