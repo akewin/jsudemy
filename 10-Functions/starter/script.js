@@ -284,7 +284,49 @@ const poll = {
   },
 };
 
-// register event
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registrerNewAnswer.bind(poll));
+
+// Didn't made the bonus part because I implemented other feature and it would take some time to remodel it to achieve that
+
+console.log(
+  '------- LECTURE 137. Immediately invoked function expressions (IIFE) ------',
+);
+
+// basically a func that runs once and never again
+
+// this runs whenever we want
+const runOnce = function () {
+  console.log('This will never run again! 1 ');
+};
+console.log(runOnce());
+console.log(runOnce());
+
+// IIFE
+(function () {
+  console.log('This will never run again! 2');
+})();
+
+(() => console.log('This will never run again! 3'))();
+
+{
+  const isPrivate = console.log('I am privately encapsulated on my scope!');
+  var notPrivate = console.log("And I'm not :(");
+}
+
+console.log('------- LECTURE 138. Closures ------');
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
