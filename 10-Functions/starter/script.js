@@ -330,3 +330,27 @@ const booker = secureBooking();
 booker();
 booker();
 booker();
+
+// a closer is not something tangible. It says about the capacity of access to a variable should not be accessible but it is because it is carried with the parent. In the case above, we can access the variable in the object because it cames with the secureBooking()
+
+console.dir(booker);
+
+console.log('------- LECTURE 139. Closures Example ------');
+
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function(){
+  const b = 777;
+  
+}
+
+g();
+f();
+
