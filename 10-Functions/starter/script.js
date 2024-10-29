@@ -359,3 +359,5 @@ f();
 //re-assigning f function
 h();
 f();
+
+console.log("test")
