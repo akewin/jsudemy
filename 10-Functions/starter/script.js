@@ -337,6 +337,8 @@ console.dir(booker);
 
 console.log('------- LECTURE 139. Closures Example ------');
 
+// EXAMPLE 1
+
 let f;
 
 const g = function () {
@@ -359,3 +361,21 @@ f();
 //re-assigning f function
 h();
 f();
+
+console.dir(f);
+
+// EXAMPLE 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`we are all now boarding ${n} passengers`);
+    console.log(`there are 3 groups, each one with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boardin in ${wait} seconds`);
+};
+
+const perGroup = 1000;
+
+boardPassengers(180, 5);
