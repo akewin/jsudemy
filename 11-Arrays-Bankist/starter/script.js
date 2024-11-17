@@ -73,4 +73,64 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- forEach');
+// now we can use forEach
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
+
+/*
+//////////////////////////////////////////////////
+console.log('---------- Simple Array Methods ----------');
+let arr = ['a', 'b', 'c', 'd'];
+//slice method we can change any part of an array without changing the original array
+console.log(arr.slice(2, 4));
+// minus 1 is always the last element
+console.log(arr.slice(-1));
+// we can also use it to create a copy of the array, just like using spread operator
+console.log(arr.slice());
+console.log([...arr]);
+
+// splice works almost the same way but it do changes the original array
+console.log(arr.splice(2));
+
+// reverse
+arr = ['a', 'b', 'c', 'd'];
+let arr2 = arr.reverse();
+console.log(arr.reverse());
+
+// concat
+const letters = arr.concat(arr2);
+console.log(letters);
+// same as
+console.log(...arr, ...arr2);
+
+// join
+console.log(letters.join('-'));
+
+// ---- THE NEW AT METHOD -----
+console.log('---- THE NEW AT METHOD -----');
+const arr3 = [12, 26, 34];
+console.log(arr3[0]);
+console.log(arr3.at(0));
+
+// getting last array element
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1));
+
+//also works on strings
+console.log('kewin'.at(0));
+*/
