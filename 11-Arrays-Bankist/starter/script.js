@@ -134,3 +134,5 @@ console.log(arr.at(-1));
 //also works on strings
 console.log('kewin'.at(0));
 */
+
+//new lecture
