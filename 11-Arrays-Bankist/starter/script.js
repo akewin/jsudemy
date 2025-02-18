@@ -62,6 +62,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
+
 const displayMovemets = function (movements) {
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdraw';
@@ -75,41 +76,41 @@ const displayMovemets = function (movements) {
 };
 displayMovemets(account1.movements);
 
-const createUsername = function(accs){
-  accs.forEach(function(acc){
-    acc.username = user.owner
-  })
-
-  const username = user.toLowerCase()
-    .split(' ')
-    .map(name => ( name[0]
-    ).join('');
-  return username
-}
-createUsername(accounts)
+// creates the usernames by abbreviating the first letter of each name
+const createUsername = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsername(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (const [i, movement] of movements.entries()) {
-  if (movement > 0) {
-    console.log(`Movement ${i + 1}You deposited ${movement}`);
-  } else {
-    console.log(`Movement ${i + 1} You withdrew ${Math.abs(movement)}`);
-  }
-}
+// for (const [i, movement] of movements.entries()) {
+//   if (movement > 0) {
+//     console.log(`Movement ${i + 1}You deposited ${movement}`);
+//   } else {
+//     console.log(`Movement ${i + 1} You withdrew ${Math.abs(movement)}`);
+//   }
+// }
 
-console.log('---- forEach');
-// now we can use forEach
-movements.forEach(function (movement) {
-  if (movement > 0) {
-    console.log(`You deposited ${movement}`);
-  } else {
-    console.log(`You withdrew ${Math.abs(movement)}`);
-  }
-});
+// console.log('---- forEach');
+// // now we can use forEach
+// movements.forEach(function (movement) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdrew ${Math.abs(movement)}`);
+//   }
+// });
 
 /*
 //////////////////////////////////////////////////
@@ -156,25 +157,25 @@ console.log('kewin'.at(0));
 */
 
 // FOREACH WITH MAPS AND SETS
-console.log('---------- forEach with maps and sets ----------');
+// console.log('---------- forEach with maps and sets ----------');
 
-//map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// //map
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
-currencies.forEach(function (value, key, map) {
-  console.log(`${value}, ${key}`);
-});
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${value}, ${key}`);
+// });
 
-//set
-const currenciesUnique = new Set(['USD', 'BRL', 'GBP', 'ETH']);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (value, _, map) {
-  console.log(`${value}: ${value}`);
-});
+// //set
+// const currenciesUnique = new Set(['USD', 'BRL', 'GBP', 'ETH']);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function (value, _, map) {
+//   console.log(`${value}: ${value}`);
+// });
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -197,44 +198,44 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const checkDogs = function (dogsJulia, dogsKate) {
-  const juliaCorrected = dogsJulia.slice();
-  juliaCorrected.splice(0, 1);
-  juliaCorrected.splice(-2, 2);
-  console.log(juliaCorrected);
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const juliaCorrected = dogsJulia.slice();
+//   juliaCorrected.splice(0, 1);
+//   juliaCorrected.splice(-2, 2);
+//   console.log(juliaCorrected);
 
-  const juliaAndKate = juliaCorrected.concat(dogsKate);
-  juliaAndKate.forEach(function (dog, i) {
-    if (dog >= 3) {
-      console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
-    } else {
-      console.log(`Dog number ${i + 1} is still a puppy 🐶`);
-    }
-  });
-};
-checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+//   const juliaAndKate = juliaCorrected.concat(dogsKate);
+//   juliaAndKate.forEach(function (dog, i) {
+//     if (dog >= 3) {
+//       console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+//     } else {
+//       console.log(`Dog number ${i + 1} is still a puppy 🐶`);
+//     }
+//   });
+// };
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
-// MAP, FILTER, REDUCE
-console.log('---------- Map, filter, reduce ----------');
+// // MAP, FILTER, REDUCE
+// console.log('---------- Map, filter, reduce ----------');
 
-const usdToEur = 1.1;
-/*
-const movUSD = movements.map(function (mov) {
-  return mov * usdToEur;
-});
-*/
-const movUSD = movements.map(mov => mov * usdToEur);
+// const usdToEur = 1.1;
+// /*
+// const movUSD = movements.map(function (mov) {
+//   return mov * usdToEur;
+// });
+// */
+// const movUSD = movements.map(mov => mov * usdToEur);
 
-console.log(movements);
-console.log(movUSD);
+// console.log(movements);
+// console.log(movUSD);
 
-const movementUSDfor = [];
-for (const mov of movements) movementUSDfor.push(mov * usdToEur);
-console.log(movementUSDfor);
+// const movementUSDfor = [];
+// for (const mov of movements) movementUSDfor.push(mov * usdToEur);
+// console.log(movementUSDfor);
 
-const movDescriptions = movements.map(
-  (mov, i) =>
-    `Movement ${i + 1}: you ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`,
-);
+// const movDescriptions = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: you ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`,
+// );
 
-console.log(movDescriptions);
+// console.log(movDescriptions);
