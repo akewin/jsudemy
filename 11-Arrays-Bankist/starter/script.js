@@ -239,3 +239,23 @@ GOOD LUCK 😀
 // );
 
 // console.log(movDescriptions);
+
+
+// Challenge 2
+// dogAge the dog age in humhumanars using the following formula: if the dog is 2 years old, humanAge 2 dogAge. If the dog is 2 years old, humanAge 16+ dogAge 4.
+
+309 2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18 years old)
+
+310 3. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages
+
+311 4. Run the function for both test datasets
+
+312
+
+313 TEST DATA 1: 15, 2, 4, 1, 15, 8, 31
+
+314 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+315
+
+316 GOOD LUCK
